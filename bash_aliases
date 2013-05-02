@@ -1,7 +1,7 @@
 # Always cool to have aliases
 # Credits : Aliases.sh, the Internet and myself ;)
 
-# Define a few Colours
+# Define a few colors
 BLACK='\[\033[0;30m\]'
 BLUE='\[\033[0;34m\]'
 GREEN='\[\033[0;32m\]'
@@ -92,13 +92,12 @@ my_ip() {
 # Creating a new web project
 new_site() {
     if [[ $# > 0 ]]; then
-        local folder="${HOME}/websites/$1"
+        local folder="$HOME/websites/$1"
         mkdir $folder
         mkdir $folder/$2.local
         sudo chgrp -R www-data $folder
         sudo cp $HOME/my_scripts/templates/sites-available.example /etc/apache2/sites-available/$2.local
-        sudo sed -i "s/user_home/${1}/g" /etc/apache2/sites-available/$2.local
-        sudo sed -i "s/folder/${1}/g" /etc/apache2/sites-available/$2.local
+        sudo sed -i "s/path/${folder}/g" /etc/apache2/sites-available/$2.local
         sudo sed -i "s/project/${2}/g" /etc/apache2/sites-available/$2.local
         sudo ln -s /etc/apache2/sites-available/$2.local /etc/apache2/sites-enabled/.
         sudo sh -c "echo '#$1\n127.0.0.1 $2.local' >> /etc/hosts"
@@ -111,4 +110,3 @@ new_site() {
 
 # Playing some Minecraft!
 alias minecraft='java -Xmx1024M -Xms512M -cp $HOME/applications/minecraft.jar net.minecraft.LauncherFrame'
-
