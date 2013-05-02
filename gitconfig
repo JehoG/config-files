@@ -1,0 +1,15 @@
+[user]
+    name = Nilovna Bascunan-Vasquez
+    email = contact@nilovna.com
+[github]
+    user = nilovna
+    token = my_token
+[color]
+    branch = true
+    diff = true
+    status = true 
+    ui = true
+[help]
+    autocorrect = 1
+[merge]
+    conflictstyle = diff3

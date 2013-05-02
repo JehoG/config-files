@@ -80,6 +80,7 @@ alias gl='git log --graph --full-history --all --color --abbrev-commit --pretty=
 alias gc='git commit -am'
 alias ga='git add'
 alias gp='git push'
+alias gst='git status'
 
 # Get my IP
 my_ip() {
