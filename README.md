@@ -1,3 +1,2 @@
-TODO
-====
-* Create make file
+##HOW TO##
+Run make in terminal
