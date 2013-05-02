@@ -1,9 +1,8 @@
-
 <VirtualHost *:80>
   ServerName project.local
   ServerAlias *.project.local
-  DocumentRoot ~/websites/folder/project.local
-  <Directory ~/websites/folder/project.local>
+  DocumentRoot homefolder/websites/folder/project.local
+  <Directory homefolder/websites/folder/project.local>
     Options Indexes FollowSymLinks MultiViews
     AllowOverride All
     Order allow,deny
@@ -14,8 +13,8 @@
   <VirtualHost *:443>
     ServerName project.local
     ServerAlias *.project.local
-    DocumentRoot ~/websites/folder/project.local
-    <Directory ~/websites/folder/project.local>
+    DocumentRoot homefolder/websites/folder/project.local
+    <Directory homefolder/websites/folder/project.local>
       Options Indexes FollowSymLinks MultiViews
       AllowOverride All
       Order allow,deny
