@@ -1,0 +1,18 @@
+{
+	"auto_upgrade_last_run": null,
+	"installed_packages":
+	[
+		"BracketHighlighter",
+		"CodeIgniter Snippets",
+		"Emmet",
+		"Emmet Css Snippets",
+		"jQuery",
+		"LESS",
+		"Package Control",
+		"Pretty JSON",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"Twitter Bootstrap Snippets",
+		"Wordpress"
+	]
+}
