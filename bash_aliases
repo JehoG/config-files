@@ -92,14 +92,14 @@ my_ip() {
 # Creating a new web project
 new_site() {
     if [[ $# > 0 ]]; then
-        local folder="$HOME/websites/$1"
+        local folder="${HOME}/websites/${1}"
         mkdir $folder
         mkdir $folder/$2.local
         sudo chgrp -R www-data $folder
         sudo cp $HOME/my_scripts/templates/sites-available.example /etc/apache2/sites-available/$2.local
-        sudo sed -i "s/path/${folder}/g" /etc/apache2/sites-available/$2.local
+        sudo sed -i "s,path,${folder},g" /etc/apache2/sites-available/$2.local
         sudo sed -i "s/project/${2}/g" /etc/apache2/sites-available/$2.local
-        sudo ln -s /etc/apache2/sites-available/$2.local /etc/apache2/sites-enabled/.
+        sudo ln -s /etc/apache2/sites-available/$2.local /etc/apache2/sites-enabled/
         sudo sh -c "echo '#$1\n127.0.0.1 $2.local' >> /etc/hosts"
         sudo service apache2 reload
         echo "Done. You can now access http://$2.local" 
