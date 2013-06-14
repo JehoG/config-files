@@ -96,7 +96,7 @@ new_site() {
         mkdir $folder
         mkdir $folder/$2.local
         sudo chgrp -R www-data $folder
-        sudo cp $HOME/my_scripts/templates/sites-available.example /etc/apache2/sites-available/$2.local
+        sudo cp $HOME/.my-config-files/templates/sites-available.example /etc/apache2/sites-available/$2.local
         sudo sed -i "s,path,${folder},g" /etc/apache2/sites-available/$2.local
         sudo sed -i "s/project/${2}/g" /etc/apache2/sites-available/$2.local
         sudo ln -s /etc/apache2/sites-available/$2.local /etc/apache2/sites-enabled/
@@ -109,4 +109,14 @@ new_site() {
 }
 
 # Playing some Minecraft!
-alias minecraft='java -Xmx1024M -Xms512M -cp $HOME/applications/minecraft.jar net.minecraft.LauncherFrame'
+alias minecraft="java -Xmx1024M -Xms512M -cp $HOME/applications/minecraft.jar net.minecraft.LauncherFrame"
+
+# Ruby RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Virtualenv
+export VIRTUELENV_DISTRIBUTE=true
+source /usr/local/bin/virtualenvwrapper.sh
+
+# PATH
+export PATH=$PATH:$HOME/.local/bin
