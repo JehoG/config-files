@@ -32,6 +32,8 @@ alias lt='ls -ltr'
 alias df='df -h'
 alias tree='tree -Csuh'
 alias diskspace="du -Sh | sort -n -r |more"
+alias diff=colordiff
+alias grep=ack-grep
 
 # Yeah... I know
 alias rm="mv -t $HOME/.local/share/Trash/files"
@@ -79,8 +81,10 @@ makezip() { zip -r "${1%%/}.zip" "$1" ; }
 alias gl='git log --graph --full-history --all --color --abbrev-commit --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%C(yellow)%d %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
 alias gc='git commit -am'
 alias ga='git add'
-alias gp='git push'
+alias gps='git push'
 alias gst='git status'
+alias gpl='git pull'
+alias gb='git branch'
 
 # Get my IP
 my_ip() {
