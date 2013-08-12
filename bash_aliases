@@ -20,8 +20,12 @@ YELLOW='\[\033[01;33m\]'
 WHITE='\[\033[1;37m\]'
 NC='\[\033[0m\]' # No Color
 
+function parse_git_branch { 
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' 
+} 
+
 # Some basic stuff
-PS1="$YELLOW[\$(date +%H:%M)]$LIGHTGREEN[\u$SSH_FLAG:$CYAN\w$LIGHTGREEN]\\$ $NC"
+PS1="$YELLOW[\$(date +%H:%M)]$LIGHTGREEN[\u$SSH_FLAG:$CYAN\w$LIGHTGREEN]\$(parse_git_branch)\\$ $NC"
 
 alias ls='ls -h --color=auto'
 alias ll='ls -l'
@@ -83,7 +87,7 @@ alias gc='git commit -am'
 alias ga='git add'
 alias gps='git push'
 alias gst='git status'
-alias gpl='git pull'
+alias gpl='git pull --rebase'
 alias gb='git branch'
 
 # Get my IP
@@ -124,3 +128,5 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # PATH
 export PATH=$PATH:$HOME/.local/bin
+[[ -s /home/nilovna/.nvm/nvm.sh ]] && . /home/nilovna/.nvm/nvm.sh # This loads NVM
+
